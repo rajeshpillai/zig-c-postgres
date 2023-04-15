@@ -1,1 +1,0 @@
-zig build-exe example.zig -lc -lpq
