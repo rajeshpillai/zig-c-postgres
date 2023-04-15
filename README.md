@@ -14,3 +14,9 @@ zig build-exe example.zig -lc -lpq
 zig run example.zig -lc -lpq
 ```
 
+
+# Run the demo with DB wrapper
+
+```
+zig run demo/demo.zig -lc -lpq
+```

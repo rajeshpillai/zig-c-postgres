@@ -54,4 +54,7 @@ pub fn main() void {
     }
     std.debug.print("\n", .{});
   }
+
+  std.debug.print("\n{s}", .{c.PQgetvalue(result, 0, 0)});
+
 }
