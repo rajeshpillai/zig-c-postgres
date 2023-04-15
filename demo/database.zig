@@ -82,40 +82,6 @@ pub const Database = struct {
         return rows;
     }
 
-
-    pub fn query2(self: *Database, sql: []const u8) !std.ArrayList([]const u8) {
-      const result = c.PQexec(self.conn, sql.ptr);
-      defer c.PQclear(result);
-
-      if (c.PQresultStatus(result) != c.PGRES_TUPLES_OK) {
-          return error.QueryFailed;
-      }
-
-      var rows = std.ArrayList([]const u8).init(std.heap.page_allocator);
-      const num_rows = c.PQntuples(result);
-      const num_columns = c.PQnfields(result);
-
-      var i: i32 = 0;
-      while (i < num_rows) : (i += 1) {
-          var row_builder = std.ArrayList(u8).init(std.heap.page_allocator);
-          defer row_builder.deinit();
-
-          var j: i32 = 0;
-          while (j < num_columns) : (j += 1) {
-              const value = c.PQgetvalue(result, i, j);
-              const value_str = std.mem.span(@ptrCast([*c]const u8, value));
-              try row_builder.appendSlice(value_str);
-              if (j < num_columns - 1) {
-                  try row_builder.append(',');
-              }
-          }
-          const row_str = row_builder.toOwnedSlice();
-          try rows.append(row_str);
-      }
-
-      return rows;
-    }
-
     pub fn close(self: *Database) void {
         c.PQfinish(self.conn);
     }
