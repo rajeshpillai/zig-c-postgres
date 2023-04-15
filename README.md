@@ -22,16 +22,6 @@ zig run demo/demo.zig -lc -lpq
 ```
 
 
-# Build
 
-```
-zig build-exe example.zig -lc -lpq
-```
-
-# Run
-
-```
-zig run example.zig -lc -lpq
-```
 
 
