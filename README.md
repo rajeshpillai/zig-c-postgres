@@ -36,7 +36,7 @@ Please change this to work for your.  Will try to remove hardcoding.
 # Run the demo with DB wrapper
 
 ```
-zig run demo/demo.zig -lc -lpq
+zig run demo.zig -lc -lpq
 ```
 
 

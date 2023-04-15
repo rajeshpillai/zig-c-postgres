@@ -1,5 +1,5 @@
 const std = @import("std");
-const Database = @import("database.zig").Database;
+const Database = @import("lib/database.zig").Database;
 
 pub fn main() void {
     const connection_string = "host=localhost port=5432 dbname=portal_cms_dev user=postgres password=root123";
