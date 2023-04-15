@@ -2,8 +2,15 @@
 Using postgres c library with zig
 
 
-# Run
+# Build
 
 ```
 zig build-exe example.zig -lc -lpq
 ```
+
+# Run
+
+```
+zig run example.zig -lc -lpq
+```
+
