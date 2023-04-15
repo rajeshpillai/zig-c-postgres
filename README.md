@@ -33,12 +33,17 @@ URL: https://www.postgresql.org/docs/current/libpq-build.html
 Please change this to work for your.  Will try to remove hardcoding.
 
 
-# Run the demo with DB wrapper
+# Run the DB demo with DB wrapper
 
 ```
 zig run demo.zig -lc -lpq
 ```
 
+# Run the ORM demo 
+
+```
+zig run orm-demo.zig -lc -lpq
+```
 
 
 

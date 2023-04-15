@@ -30,6 +30,15 @@ pub const Database = struct {
         return std.mem.spanZ(c.PQerrorMessage(self.conn));
     }
 
+    // ofr insert, update, delete
+    pub fn execute(self: *Database, sql: []const u8) !void {
+        const result = c.PQexec(self.conn, sql.ptr);
+        defer c.PQclear(result);
+
+        if (c.PQresultStatus(result) != c.PGRES_COMMAND_OK) {
+            return error.QueryFailed;
+        }
+    }
 
     pub fn query(self: *Database, sql: []const u8) !std.ArrayList([]const u8) {
         const result = c.PQexec(self.conn, sql.ptr);
