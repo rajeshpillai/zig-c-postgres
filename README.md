@@ -12,6 +12,17 @@ const c = @cImport({
 
 ```
 
+## Helpful commands
+If you want to know where the libpq-fe.h is installed you can run the below command assuming postgres and related dependencies are installed.
+
+```
+pkg-config --cflags libpq
+```
+
+## References
+URL: https://www.postgresql.org/docs/current/libpq-build.html
+
+
 Please change this to work for your.  Will try to remove hardcoding.
 
 
