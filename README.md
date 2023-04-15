@@ -12,14 +12,21 @@ const c = @cImport({
 
 ```
 
-## Helpful commands
+# Connecton string
+Update the connection string in demo/demo.zig
+
+```
+const connection_string = "host=localhost port=5432 dbname=portal_cms_dev user=postgres password=root123";
+```
+
+# Helpful commands
 If you want to know where the libpq-fe.h is installed you can run the below command assuming postgres and related dependencies are installed.
 
 ```
 pkg-config --cflags libpq
 ```
 
-## References
+# References
 URL: https://www.postgresql.org/docs/current/libpq-build.html
 
 
