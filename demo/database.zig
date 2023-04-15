@@ -1,7 +1,8 @@
 const std = @import("std");
 
+const postgres_include_path = "/usr/include/postgresql/"; 
 const c = @cImport({
-    @cInclude("/usr/include/postgresql/libpq-fe.h");
+    @cInclude(postgres_include_path ++ "libpq-fe.h");
 });
 
 pub const Database = struct {

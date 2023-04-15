@@ -7,9 +7,11 @@ const Allocator = std.mem.Allocator;
 // pkg-config --cflags libpq
 // URL: https://www.postgresql.org/docs/current/libpq-build.html
 
+const postgres_include_path = "/usr/include/postgresql/"; 
 const c = @cImport({
-    @cInclude("/usr/include/postgresql/libpq-fe.h");
+    @cInclude(postgres_include_path ++ "libpq-fe.h");
 });
+
 
 pub fn main() void {
   //const allocator = std.heap.page_allocator;
