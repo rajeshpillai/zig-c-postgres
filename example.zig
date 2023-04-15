@@ -12,8 +12,8 @@ const c = @cImport({
 });
 
 pub fn main() void {
-  const allocator = std.heap.page_allocator;
-  _ = allocator;
+  //const allocator = std.heap.page_allocator;
+  //_ = allocator;
 
   // Initialize connection parameters
   const connection_string = "host=localhost port=5432 dbname=portal_cms_dev user=postgres password=root123";
