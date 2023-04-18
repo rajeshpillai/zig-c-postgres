@@ -22,12 +22,24 @@ pub fn main() void {
     }
 
     // Insert a new row
-    Model.create(&db, "apps", "name", "'App 2'") catch |err| {
+    // Model.create(&db, "apps", "name", "'App 2'") catch |err| {
+    //     std.debug.print("Failed to insert row: {}\n", .{err});
+    // };
+
+    Model.create(&db, "apps", "name, user_id", "'App 2', 1") catch |err| {
+        std.debug.print("Failed to insert row: {}\n", .{err});
+    };
+
+    Model.create(&db, "apps", "name, user_id", "'App 4', 1") catch |err| {
+        std.debug.print("Failed to insert row: {}\n", .{err});
+    };
+
+    Model.create(&db, "apps", "name, user_id", "'App 5', 1") catch |err| {
         std.debug.print("Failed to insert row: {}\n", .{err});
     };
 
     // Update an existing row
-    Model.update(&db, "apps", "name = 'App 3'", "name = 'App 2'") catch |err| {
+    Model.update(&db, "apps", "name = 'App 5.1'", "name = 'App 2'") catch |err| {
         std.debug.print("Failed to update row: {}\n", .{err});
     };
 
