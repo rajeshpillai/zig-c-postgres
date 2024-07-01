@@ -1,6 +1,9 @@
 # Zig Postgres C
 Using postgres c library with zig
 
+Zig Versions
+- 0.14.0-dev.130+cb308ba3a (1-July-2024)
+
 # Important 
 I have hardcoded  the include path of libpq-fe.h
 

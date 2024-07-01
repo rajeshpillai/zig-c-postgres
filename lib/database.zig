@@ -60,8 +60,8 @@ pub const Database = struct {
 
             var j: i32 = 0;
             while (j < num_columns) : (j += 1) {
-                const field_name = c.PQfname(result, j);
-                const field_name_str = std.mem.span(@ptrCast([*c]const u8, field_name));
+                // const _field_name = c.PQfname(result, j);
+                const field_name_str = std.mem.span(@ptrCast([*c]const u8));
                 try header_builder.appendSlice(field_name_str);
                 if (j < num_columns - 1) {
                     try header_builder.append(',');
@@ -79,8 +79,8 @@ pub const Database = struct {
 
             var j: i32 = 0;
             while (j < num_columns) : (j += 1) {
-                const value = c.PQgetvalue(result, i, j);
-                const value_str = std.mem.span(@ptrCast([*c]const u8, value));
+                // const value = c.PQgetvalue(result, i, j);
+                const value_str = std.mem.span(@ptrCast([*c]const u8));
                 try row_builder.appendSlice(value_str);
                 if (j < num_columns - 1) {
                     try row_builder.append(',');
@@ -114,7 +114,7 @@ pub const Database = struct {
             var j: i32 = 0;
             while (j < num_columns) : (j += 1) {
                 const field_name = c.PQfname(result, j);
-                const field_name_str = std.mem.span(@ptrCast([*c]const u8, field_name));
+                const field_name_str = std.mem.span(@as([*c]const u8,field_name));
                 try header_builder.appendSlice(field_name_str);
                 if (j < num_columns - 1) {
                     try header_builder.append(',');
@@ -137,7 +137,7 @@ pub const Database = struct {
             var j: i32 = 0;
             while (j < num_columns) : (j += 1) {
                 const value = c.PQgetvalue(result, i, j);
-                const value_str = std.mem.span(@ptrCast([*c]const u8, value));
+                const value_str = std.mem.span(@as([*c]const u8,value));
                 try row_builder.appendSlice(value_str);
                 if (j < num_columns - 1) {
                     try row_builder.append(',');
